@@ -28,10 +28,10 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
-  deploy-report:
+    deploy-report:
     needs: test
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' # só publica na branch main
+    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
@@ -41,8 +41,10 @@ jobs:
       - name: Create redirect index.html
         run: |
           echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=site/index.html"></head><body>Redirecionando para o relatório...</body></html>' > index.html
+          ls -R .
       - name: Deploy report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
+
