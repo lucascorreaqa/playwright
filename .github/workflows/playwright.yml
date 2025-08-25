@@ -28,7 +28,7 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
-    deploy-report:
+  deploy-report: # ✅ agora no mesmo nível de "test"
     needs: test
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
@@ -47,4 +47,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
-
