@@ -1,7 +1,22 @@
-
-# Playwright
+# Node
 node_modules/
-/test-results/
-/playwright-report/
+dist/
+.env
+
+# Playwright reports & cache
 /blob-report/
 /playwright/.cache/
+playwright-report/
+test-results/
+
+# Auth state (local only)
+playwright/.auth/
+
+# Artefatos de evidência
+*.mp4
+*.png
+*.zip
+
+# IDE / editor configs
+.vscode/
+.idea/
